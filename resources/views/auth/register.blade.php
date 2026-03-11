@@ -19,7 +19,7 @@
         <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">
             Tạo tài khoản mới
         </h2>
-        <p class="text-gray-500 mt-2">Bắt đầu hành trình của bạn ngay hôm nay</p>
+        <p class="text-gray-500 mt-2">Bắt đầu hành trình mua sắm</p>
     </div>
 
     <form method="POST" action="/register" class="space-y-5">
