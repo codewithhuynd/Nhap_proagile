@@ -19,7 +19,12 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6|confirmed'
+        ], [
+            'email.unique' => 'Email này đã được sử dụng.',
+            'email.email' => 'Định dạng email không hợp lệ.',
+            'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự.',
+            'password.confirmed' => 'Xác nhận mật khẩu không khớp',
         ]);
 
         User::create([
@@ -28,6 +33,6 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Đăng ký thành công!');
     }
 }
